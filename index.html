@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>ANKETA</title>
+  </head>
+  <body>
+    <script>
+      let name = prompt('Введите ваше Имя');
+      if (!name || !name.match(/[a-zA-Zа-яёА-ЯЁ]/g) || name.match(/[a-zA-Zа-яёА-ЯЁ]/g).length != name.length) {
+        alert('Некорректные данные. Начните сначала. Вводите только буквы.')
+        location.reload();
+      } else {
+        let surname = prompt('Введите вашу Фамилию');
+        if (!surname || !surname.match(/[a-zA-Zа-яёА-ЯЁ]/g) || surname.match(/[a-zA-Zа-яёА-ЯЁ]/g).length != surname.length) {
+          alert('Некорректные данные. Начните сначала. Вводите только буквы.')
+          location.reload();
+        } else {
+          let patronymic = prompt('Введите ваше Отчество');
+          if (!patronymic || !patronymic.match(/[a-zA-Zа-яёА-ЯЁ]/g) || patronymic.match(/[a-zA-Zа-яёА-ЯЁ]/g).length != patronymic.length) {
+          alert('Некорректные данные. Начните сначала. Вводите только буквы.')
+          location.reload();
+          } else {
+            let age = prompt('Введите ваш Возраст');
+            let days = age * 365;
+            if (!age || !age.match(/[0-9]/g) || age.match(/[0-9]/g).length != age.length || age < 16 || age > 100) {
+              alert('Некорректные данные. Начните сначала. Возраст анкетирования от 16 до 100 лет.')
+              location.reload();
+            } else {
+              let male = confirm('ваш пол - мужской?');
+              let gender = (male) ? 'мужской' : 'женский';
+              let retired = (gender == 'мужской' && age >= 63 || gender == 'женский' && age >= 58) ? 'да' : 'нет';
+              alert(`ваше ФИО: ${surname} ${name} ${patronymic}
+ваш возраст в годах: ${age}
+ваш возраст в днях: ${days}
+через 5 лет вам будет: ${+age + 5}
+ваш пол: ${gender}
+вы на пенсии: ${retired}`); 
+            }
+          }
+        }
+      }
+
+    </script>
+  </body>
+</html>
